@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>tag의 기본 속성</title>
+        <style>
+            /* 적용할 태그명 { 속성 : 값; }*/
+            span {
+                background-color: crimson; 
+                color:yellowgreen; 
+                width: 100px; 
+                height: 100px;
+            }
+            
+            div {
+                background-color: crimson; 
+                color:yellowgreen; 
+                width: 100px; 
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            inline / block
+            inline : span, a, b, img 끼워넣기 속성, 앞뒤로 줄바꿈 처리가 발생하지 않음. 자기 자신만큼만 자리를 차지해서 width height 적용은 되지않음. inline 속성 태그는 block 속성을 가진 태그를 품을 수 없다
+            block : div, p, ul, h 가로 화면 100% 공간을 차지, 앞뒤로 줄바꿈 처리가 발생함. width height를 써도 공간을 차지하기도 한다. 
+
+            css 기본형식 : "속성: 값;" 배경색상 넣어서 공간구분을 하기도 한다.
+            css : html로 구성된 문서가 실제 브라우저 화면에서 표시되는 방법을 정의하는 언어 도구.
+            스타일 속성이라고도 한다. 원하는 레이아웃과 디자인을 적용하기 위해선 필수로 사용
+        -->
+        <div>test div1</div>
+        <div>test div2</div>
+        <span>test span1</span>
+        <span>test span2</span>
+        
+        <div style = "background-color: forestgreen; color: aliceblue; width : auto; height: auto">test div1</div>
+        <div style = "auto; height: auto">test div2</div>
+        <span style = "background-color: forestgreen; color: aliceblue; auto; height: auto">test span1</span>
+        <span>test span2</span>
+        
+        <p>test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 test p1 </p>
+        <p>test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 test p2 </p>
+        
+        
+    </body>
+</html>
