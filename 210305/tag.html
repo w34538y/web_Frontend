@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>레이아웃을 다루는 속성</title>
+        <style>
+            span {
+                background-color: lightgreen;
+                margin: 20px;
+            }
+/*
+            div {
+                width: 300px;
+                height: 300px;
+                background-color: lightseagreen;
+                border: 5px solid red;
+                
+                border 속성 
+                "border: 선굵기 선종류(solid, dashed, dotted) 선색상"
+                선도 공간(픽셀)을 차지한다.
+                
+                padding: 20px;
+                display: inline-block;
+                
+            }
+*/
+            div {
+                display: inline-block;
+                width: 200px;
+                height: 200px;
+                border: 3px dotted black;
+                margin: 5px;
+            }
+            .lcoral { /* 클래스 */
+                background-color: lightcoral;
+            }
+            #lblue { /* 아이디 */
+                background-color: lightblue;
+                color:darkgoldenrod;
+                font-size: 25px;
+            }
+            
+            
+            #radiusA {
+                border-radius: 10px;
+            }
+            #radiusB {
+                border-radius: 20px;
+            }
+            #radiusC {
+                border-radius: 30%;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <!-- 
+            visibility 속성
+            visible: 요소가 화면에 보인다.
+            hidden: 요소가 화면상에 보이진 않지만 공간을 차지하고 있는 상태로 만든다. 
+        -->
+        <span>temp</span>
+        <span style = "display: none">display none test</span> <!-- 공간, 실체 모두 완전 사라짐 -->
+        <span>temp</span>
+        <span style = "visibility: hidden">visibility hidden test</span> <!-- 공간은 남겨두고 보이지 않음 -->
+        <span>temp</span>
+        
+        <!-- 
+            박스 크기는 선과 padding 모두를 계산해야한다
+        -->
+        <!-- 
+            box-sizing 속성 : 박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성
+            box-sizing 속성 값 종류 
+            content-box: 컨텐츠 영역을 기준으로 크기를 정한다 
+            border-box: 테두리를 기준으로 크기를 정한다.
+        -->
+        <!-- width, height로 지정된 값이 컨텐츠 영역에 적용되어 컨텐츠의 가로 세로 값으로 계산된다 -->
+        <div style = "box-sizing: content-box;">300*300 content-box</div>
+        <!-- width, height로 지정된 값이 테두리를 기준으로 적용되기 때문에 '실제 전체 크기'로 표시된다 -->
+        <div style = "box-sizing: border-box;">300*300 border-box</div>
+        
+        
+        <!-- 
+            css 선택자 
+            '선택자'라는 것은 수 많은 HTML 요소들 중에서 어떤 것을 선태갛고 지정해서 속성을 적용할 것인지 정의 내릴 때 사용되는 개념 
+            
+            선택자 종류 
+            * : 전체 선택자. 전체 요소를 대상으로 한다. 예 (* {css...})
+            태그명 : 타입 선택자. 명시딘 태그 타입을 대상으로 속성을 적용한다. 예 (div {css...})
+            #아이디명 : 아이디(id) 선택자. 해당 아이디 값을 갖는 요소를 대상으로 속성을 적용한다. 아이디 명칭은 중복 사용이 불가능하다. 예 (#apple{css...})
+            .클래스명 : 클래스(class) 선택자. 해당 클래스 값을 갖는 요소를 대상르로 속성을 적용한다. 클래스 명칭은 중복 사용 가능. 예 (.bread{css...})
+        -->
+        <div class="lcoral" id="radiusA">class mega</div>
+        <div class="lcoral" id="radiusB">class mega</div>
+        <div class="lcoral" id="radiusC">class mega</div>
+        <div id="lblue">id frontend</div>
+        
+        <!-- 
+            a태그
+            a href="링크, 경로, 이동하고자 하는 주소 넣을게 없으면 #"
+        -->
+        <a href="http://www.naver.com">a태그를 클릭</a>
+        
+        <!-- border-radius 속성 -->
+    </body>
+</html>
