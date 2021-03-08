@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>float 실습</title>
+        <style>
+            ul {
+                list-style: none; /* 기본 리스트 스타일 초기화 */
+                overflow: hidden;
+            }
+            .menu li { /*클래스 안의 자식 요소를 찾아서 적용 */
+                float: left; /*리스트를 옆으로 열거함 */
+                margin-right: 20px;
+                background-color: deepskyblue;
+                width: 80px;
+                height: 80px;
+                box-sizing: border-box;
+                border-radius: 15px;
+            }
+            .menu li a {
+                display: inline-block;
+                padding: 10px;
+            }
+            .menu li a img { /*메뉴 클래스 안에 li안에 a 안에 img를 찾아서 적용*/
+                width: 60px;
+                height: 60px;
+            }
+            .opacity {
+                border: 10px solid red;
+                opacity: 30%;
+                float: left;
+                width: 100px;
+                height: 500px;
+            }
+            .redbox { 
+                background-color: lightcoral;
+                padding: 1px;
+            }
+            .greenbox { 
+                background-color: lightgreen;
+                height: 60px;
+            }
+            h2 {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- ul - li는 하나의 세트로 쓰이는 태그. 리스트를 표현할 때 사용된다. -->
+        <ul class="menu">
+            <li>
+                <a href="https://www.ea.com/ko-kr/games/apex-legends/media">
+                    <img src="https://lh3.googleusercontent.com/proxy/Hnqj_N_57Uat3qv7pZdZp2XMZsSffnw7iJ3RPBtCSzOwV0lRGtScpMLlNbTACIxaDsgWJ3KDnHTYjjrvt3qpNylo41pXPpiDge9stNYrCR8T58BLoS25Dg"/>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.pubg.com/">
+                    <img src="https://pngimg.com/uploads/pubg/pubg_PNG55.png"/>
+                </a>
+            </li>
+            <li>
+                <a href="https://na.leagueoflegends.com/ko-kr/">
+                    <img src="https://logodownload.org/wp-content/uploads/2014/09/lol-league-of-Legends-logo.png"/>
+                </a>
+            </li>
+        </ul>
+        <div>
+            <div class="opacity"></div>
+            <div class="redbox"><h2>Frontend Developer</h2></div>
+            <div class="greenbox"></div>
+        </div>
+    </body>
+</html>
