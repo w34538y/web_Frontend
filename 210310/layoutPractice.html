@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>기본 레이아웃 연습</title>
+        <style>
+            /* 기본적으로 적용되어 있는 여백 공간을 초기화 해주기 위해 전체 선택자를 이용 */
+            * {
+                margin : 0; /* 전체 margin 초기화 */
+            }
+            #container {
+                background-color: antiquewhite;
+                height: 100%;
+                width: 910px;
+                margin: 0 auto;
+                padding: 10px;
+            }
+            #header {
+                background-color: rosybrown;
+                text-align: center;
+                padding: 20px 0;
+            }
+            #header h1 { /* header클래스 안의 h1태그에 적용 */
+                color: white;
+            }
+            #navigator {
+                background-color: cadetblue;
+                height: 40px;
+                margin-top: 10px;
+            }
+            #banner {
+                background-color: white;
+                margin-top: 10px;
+                padding: 10px;
+                overflow: hidden; /*floating된 자식 요소들을 감싸주기 위해 적용*/
+            }
+            /* 여러요소들에 공통적으로 적용할 속성을 묶어서 표기 */
+            #banner div {
+                height: 200px;
+                float: left;
+            }
+            #banner #inner_banner1{
+                background-color: darkviolet;
+                width: 600px;
+                margin-right: 10px;
+            }
+            #banner #inner_banner2{
+                background-color: skyblue;
+                width: 280px; /* 910px - 600px - padding 좌중우 10씩 총 30 뺴줌 */
+            }
+            #content {
+                background-color: red;
+                margin-top: 10px;
+                overflow: hidden;
+            }
+            #content .section {
+                text-align: center;
+                background-color: white;
+                float:left;
+                width: 220px; /* (910 - 10 - 10 - 10) / 4 */
+                height: 220px;
+                margin-right: 10px;
+            }
+            /*first-child: 동일 선상에 있는 자식 요소들 중 첫번째 
+              last-child: 동일 선상에 있는 자식 요소들 중 마지막 */
+            #content .section:last-child { /* 마지막 요소를 고르는 선택자 */
+                margin-right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header"><h1>기본 레이아웃 연습</h1></div>
+            <div id="navigator"></div>
+            <div id="banner">
+                <div id="inner_banner1"></div>
+                <div id="inner_banner2"></div>
+            </div>
+            <div id="content">
+                <div class="section"></div>
+                <div class="section"></div>
+                <div class="section"></div>
+                <div class="section"></div>
+            </div>
+        </div>
+    </body>
+</html>
