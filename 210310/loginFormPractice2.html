@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>로그인</title>
+        <style>
+            *{
+                margin: 0;
+            }
+            body{
+                
+                 background-color: #1cd98d;
+            }
+            .login_container {
+                width: 400px;
+                padding: 15px 30px 30px 30px;
+                margin: 200px auto;
+                background-color: white;
+                border-radius: 4px;
+                
+            }
+            input {
+                width: 100%;
+                height: 40px;
+                padding: 15px;
+                background-color: #ebebeb;
+                font-size: 16px;
+                border: 0px;
+                margin-top: 15px;
+            }
+            a {
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                text-decoration: none;
+            }
+            #login {
+                padding: 15px 0;
+                margin-top: 15px;
+                background-color: #11ab6d;
+                color: white;
+                font-size: 16px;
+                font-weight: 600; /* 폰트의 굵기를 설정(100-900) */
+            }
+            #join {
+                color: #11ab6d;
+                padding-top: 15px;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login_container">
+            <!--값을 입력 받을때 사용하는 태그. inline속성을 지님-->
+            <input placeholder="ID"/>
+            <input placeholder="PASSWORD"/>
+            <a href="#" id="login">LOGIN</a>
+            <a href="#" id="join">Create new account</a>
+        </div>
+    </body>
+</html>

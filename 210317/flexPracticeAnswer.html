@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            #container{
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+                background-color: gray;
+            }
+            #container div {
+                font-size: 50px;
+                font-weight: 600;
+                color: white;
+                text-align: center;
+            }
+            .A {
+                padding: 20px;
+                background-color: yellowgreen;
+            }
+            .row_wrapper{
+                display: flex;
+                flex-direction: row;
+                background-color:  white;
+                padding: 20px;
+            }
+            .row_wrapper.center {
+                justify-content: center;
+            }
+            .row_wrapper.around {
+                justify-content: space-around;
+            }
+            .B{
+                width: 20%;
+                background-color: coral;
+            }
+            .C{
+                width: 10%;
+                background-color: rebeccapurple;
+            }
+            .D{
+                width: 30%;
+                background-color: darkblue;
+            }
+            .E{
+                padding: 20px 0;
+                background-color: cadetblue;
+            }
+            .F{
+                width: 30%;
+                background-color: tomato;
+            }
+            .G{
+                width: 30%;
+                background-color: teal;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div class="A">A</div>
+            <div class="row_wrapper center"> <!-- 클래스 동시에 사용법 -->
+                <div class="B">B</div>
+                <div class="C">C</div>
+                <div class="D">D</div>
+            </div>
+            <div class="E">E</div>
+            <div class="row_wrapper around">
+                <div class="F">F</div>
+                <div class="G">G</div>
+            </div>
+        </div>
+    </body>
+</html>

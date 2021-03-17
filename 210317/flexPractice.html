@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            *{
+                font-size: 40px;
+                font-weight: 600;
+                color: white;
+                text-align: center;
+            }
+            #container{
+                border: 10px solid gray;
+                width: 98%;
+                height: 400px;
+            }
+            #container div {
+                padding: 20px;
+            }
+            #A {
+                background-color: yellowgreen;
+            }
+            #E {
+                background-color: dodgerblue;
+            }
+            #flex_center{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .child_item {
+                height: 30px;
+            }
+            #flex_center .child_item:first-child{
+                width:20%;
+                background-color: orange;
+            }
+            #flex_center .child_item:nth-child(2){
+                width:10%;
+                background-color: plum;
+            }
+            #flex_center .child_item:last-child{
+                width:30%;
+                background-color: blue;
+            }
+            #flex_around {
+                display:flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+            }
+            #flex_around .child_item:first-child{
+                width: 30%;
+                background-color: orange;
+            }
+            #flex_around .child_item:last-child{
+                width: 30%;
+                background-color: cadetblue;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="A">A</div>
+            <div id="flex_center">
+                <div class="child_item">B</div>
+                <div class="child_item">C</div>
+                <div class="child_item">D</div>
+            </div>
+            <div id="E">E</div>
+            <div id="flex_around">
+                <div class="child_item">F</div>
+                <div class="child_item">G</div>
+            </div>
+        </div>
+    </body>
+</html>
