@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>grid 속성</title>
+        <style>
+            #grid_container {
+                display: grid;
+                grid-template-rows: repeat(3, 1fr); /*repeat(반복할 횟수, 값)*/
+                grid-template-columns: 3fr 1fr 1fr; /*3열을 3:1:1 비율로 배치 */
+                width: 400px;
+                height: 400px;
+                background-color: antiquewhite;
+                
+            }
+            .grid_item{
+                background-color: red;
+                font-size: 20px;
+                border: 1px solid black;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 
+        grid
+            *display 속성 값 종류 중 하나 
+            *그리드 컨테이너와 내부 요소들
+            *flex 속성 처럼 컨테이너가 grid 속성으로 지정되면 내부 요소들은 그에 따른 배치가 된다. 
+            *배치와 정렬에 관한 속성
+        -->
+        <!--
+            grid-template-columns : 열들의 배치를 제어할 때 사용 (상->하)
+            grid-template-rows : 행들의 배치를 제어할 떄 사용 (좌->우)
+        -->
+        <div id="grid_container">
+            <div class="grid_item">1</div>
+            <div class="grid_item">2</div>
+            <div class="grid_item">3</div>
+            <div class="grid_item">4</div>
+            <div class="grid_item">5</div>
+            <div class="grid_item">6</div>
+            <div class="grid_item">7</div>
+        </div>
+    </body>
+</html>
