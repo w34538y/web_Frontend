@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            #container {
+                width: 100%;
+                height: 100%;
+                background-color: lightblue;
+                display: grid;
+                grid-gap: 20px;
+                grid-template-rows: repeat(7, 1fr);
+                grid-template-columns: repeat(10, 1fr);
+                padding: 20px;
+            }
+            #header {
+                background-color: white;
+                grid-column-start: 1;
+                grid-column-end: 10;
+                grid-row-start: 1;
+                grid-row-end: 2;
+            }
+            #navigator {
+                background-color: white;
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 2;
+                grid-row-end: 6;
+            }
+            #content {
+                background-color: dodgerblue;
+                grid-column-start: 3;
+                grid-column-end: 10;
+                grid-row-start: 2;
+                grid-row-end: 6;
+                padding: 20px;
+            }
+            #inner_content{
+                background-color: white;
+                padding: 0;
+            }
+            #inner_content div {
+                background-color: beige;
+                width: 300px;
+                height: 300px;
+                display: inline-block;
+                margin-right: 20px;
+            }
+            #inner_content div:last-child{
+                margin-right: 0;
+            }
+            #footer {
+                background-color: white;
+                grid-column-start: 1;
+                grid-column-end: 10;
+                grid-row-start: 6;
+                grid-row-end: 7;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">header</div>
+            <div id="navigator">navigator</div>
+            <div id="content">content
+                <div id="inner_content">
+                    <div>A</div>
+                    <div>B</div>
+                    <div>C</div>
+                </div>
+            </div>
+            <div id="footer">footer</div>
+        </div>
+    </body>
+</html>
