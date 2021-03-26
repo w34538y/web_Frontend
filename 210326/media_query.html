@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>media query</title>
+        <style>
+            #content {
+                margin: 40px;
+            }
+            #content div {
+                height: 200px;
+            }
+            .red {
+                background-color: red;
+            }
+            .green {
+                background-color: green;
+            }
+            .yellow {
+                background-color: yellow;
+            }
+            .blue {
+                background-color: blue;
+            }
+            /*
+                @media only(not<-생략가능) 미디어 유형 and 적용조건 {적용할 스타일 속성}
+                (미디어 유형 : screen, tv, all 등등)
+                적용조건 
+                min-width(최소 npx 이상), max-width
+                min-height, max-height
+            */
+            @media only screen and (min-width:800px) {
+                #content div {
+                    display: inline-block;
+                    width: 25%
+                }
+            }
+            @media only screen and (max-width:800px) and (min-width: 540px){
+                #content div {
+                    display: inline-block;
+                    width: 50%
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            반응형 웹 
+            컨텐츠가 출력되는 기기의 종류와 크기에 따라서 화면이 최적화된 레이아웃으로 조정된다.
+            가장 기본적인 단계 pc-> 태블릿 ->모바일**
+        -->
+        <div id="content">
+            <div class="red"></div><div class="green"></div><div class="yellow"></div><div class="blue"></div>
+        </div>
+    </body>
+</html>
