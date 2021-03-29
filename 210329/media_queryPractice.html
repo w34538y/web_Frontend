@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <title>미디어 쿼리 연습 </title>
+        <style>
+            *{
+                margin: 0;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            #container{
+                width: 80%;
+                margin: 0 auto;
+                background-color: lightgray;
+            }
+            nav {
+                padding-top: 30px;
+                padding-bottom: 10px;
+            }
+            nav .logo{
+                width: 10%;
+                padding: 10px 30px;
+                background-color: yellowgreen;
+                color: white;
+                font-weight: 700;
+                font-size: 30px;
+            }
+            nav .menu{
+                display: flex;
+                width: 100%;
+                color: white;
+            }
+            nav .menu div{
+                display: inline-block;
+                padding: 10px 30px;
+                margin-right: 5px;
+                font-weight: 700;
+                font-size: 30px;
+                background-color: yellowgreen;
+                
+            }
+            nav .menu a{
+                width: 100%;
+                margin: 0 5px;
+                padding: 20px 0;
+                text-align: center;
+                font-weight: 700;
+                font-size: 15px;
+                background-color: yellowgreen;   
+            }
+            nav .menu a:last-child{
+                margin-right: 0;
+            }
+            .banner {
+                width: 100%;
+                background-color: lightblue;
+                height: 250px;
+                margin-bottom: 10px;
+            }
+            article {
+                display: grid;
+                grid-template-rows: repeat(4,1fr);
+                grid-gap: 10px;
+                margin-bottom: 10px;
+            }
+            article div {
+                text-align: center;
+                padding: 100px 0;
+                width: 100%;
+                background-color: cornflowerblue;
+            }
+            
+            @media only screen and (min-width: 800px){
+                article{
+                    display: grid;
+                    grid-gap: 10px;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                }
+            }
+            @media only screen and (max-width: 800px) and (min-width: 540px){
+                article{
+                    display: grid;
+                    grid-gap: 10px;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                }
+                article div:nth-child(5){
+                    display: none;
+                }
+                article div:nth-child(6){
+                    display: none;
+                }
+            }
+            @media only screen and (max-width:540px){
+                article div:nth-child(5){
+                    display: none;
+                }
+                article div:nth-child(6){
+                    display: none;
+                }
+            }
+            footer {
+                background-color: gray;
+                height: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <nav>   
+                    <div class="menu">
+                        <div>LOGO</div>
+                        <a href="#">메뉴1</a>
+                        <a href="#">메뉴2</a>
+                        <a href="#">메뉴3</a>
+                        <a href="#">메뉴4</a>
+                    </div>
+                    
+                </nav>
+            </header>
+            <section>
+                <div class="banner">메인배너</div>
+                <article>
+                    <div class="content">내용</div>
+                    <div class="content">내용</div>
+                    <div class="content">내용</div>
+                    <div class="content">내용</div>
+                    <div class="content">내용</div>
+                    <div class="content">내용</div>
+                </article>
+            </section>
+            <footer>
+                <p>저작권 및 방침</p>
+            </footer>
+        </div>
+    </body>
+</html>
