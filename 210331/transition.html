@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            * {
+                margin: 0;
+            }
+            .conatiner {
+                padding: 20px;
+                background-color: #ebebeb;
+                border: 1px solid gray;
+            }
+            .box{
+                width: 60px;
+                height: 60px;
+                margin-bottom: 20px;
+                font-size: 20px;
+                font-weight: 600;
+                margin: 20px;
+            }
+            .box:last-child {
+                margin-bottom: 0px;
+            }
+            .box:hover .box { 
+                width: 100%;
+                background-color: skyblue;
+                opacity: 50%;
+                border-radius: 12px;
+                transition-property: all;
+                transition-duration: 5s;
+            }
+            .ease {
+                background-color: dodgerblue;
+                transition-timing-function: ease;
+            }
+            .linear {
+                background-color: darkseagreen;
+                transition-timing-function: linear;
+            }
+            .ease-in { 
+                background-color: darkorange;
+                transition-timing-function: ease-in;
+            }
+            .ease-out {
+                background-color: cornflowerblue;
+                transition-timing-function: ease-out;
+            }
+            .ease-in-out {
+               background-color: dimgray;
+                transition-timing-function: ease-in-out;
+            }
+            .step-start {
+                background-color: darkviolet;
+                transition-timing-function: step-start;
+            }
+            .step-end {
+                background-color: forestgreen;
+                transition-timing-function: step-end;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box ease">ease</div>    
+            <div class="box linear">linear</div>    
+            <div class="box ease-in">ease-in</div>    
+            <div class="box ease-out">ease-out</div>    
+            <div class="box ease-in-out">ease-in-out</div>    
+            <div class="box step-start">step-start</div>    
+            <div class="box step-end">step-end</div>
+        </div>
+    </body>
+</html>
