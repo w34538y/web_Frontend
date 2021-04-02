@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}   
+ul {
+    padding-left: 0;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+body {
+    background-color: lightblue;
+}
+.container {
+    margin: 200px auto;
+    width: 420px;
+}
+.diamond {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    transform: rotate(45deg);
+}
+.title {
+    /* 표의 셀 속성처럼 바꿔준다. - 셀이 차지하는 공간 내에서 손쉽게 수직, 수평 정렬을 적용할 수 있다. */
+    display: table-cell; 
+    color: white;
+    font-weight: bold; /*bold == 700*/
+    font-size: 14px;
+    width: 100px;
+    height: 100px;
+    /* 크로스 브라우징 
+    익스플로러, 엣지, 파이어폭스, 사파리, 오페라, 크롬 등 브라우저 종류마다 css의 표현이 다한다. 이러한 점을 고려하여 표준 웹 기술을 적용하고 각 브라우저 종류별 표현 수준을 맞추는 것.
+    동등한 수준의 정보를 차별없이 제공할 수 있게 점검하는 것이 중요.
+    -moz-transform: rotate(45deg); 모질라 파이어폭스의 접두어 - 사용 속성
+    -o-transform: rotate(45deg); 오페라 브라우저의 접두어 - 사용 속성
+    -webkit-transform: rotate(45deg); 구글 크롬, 애플 사파리 웹킷의 접두어 - 사용 속성
+    -ms-transform: rotate(45deg); ms 익스플로러의 접두어 - 사용 속성
+    */
+    transform: rotate(-45deg););
+    
+    text-align: center;
+    /*본래 vertical-align속성은 inline, inline-block 속성 요소에 사용할 때 요소table-cell 속성에 사용하는 경우에는 요소안의 내용(요소 내부의 글자 등의 컨텐츠)등에도 영향을 미친다. */
+    vertical-align: middle;
+}
+/*부모요소 > 자식요소 : 부모요소 아래의 자식요소를 지정할 떄 사용 (직접적인 부모자식 관계의 용)*/
+.diamond:hover > .title {
+    font-size: 20px;
+    transition: all 0.2s
+}
+#menu1{ background-color: #fbaf40; }
+#menu2{ background-color: #fcd546; }
+#menu3{ background-color: #fc9b46; }
+#menu4{ 
+    margin-left: 90px;
+    background-color: #69AFBD;
+}
+#menu5{ 
+    background-color: #B46280; 
+}
+#menu4, #menu5 , #menu6{
+    margin-top: -50px;
+}
+#menu6{ 
+    margin-left: 160px;
+    background-color: #337987; 
+}
+            
