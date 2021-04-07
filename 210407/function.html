@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>function</title>
+    </head>
+    <body>
+        <script>
+            // 함수 function
+            // function 함수명 (매개변수 목록) {함수를 정의하는 코드 집합} 
+            // 호출전까진 실행되지 않는다. 
+//            function outputHello(){
+//                alert("안녕하세요!");
+//            }
+             //함수명() : 해당 함수를 호출한다 (작동시킨다)
+            
+            // 익명함수 선언 
+            // 함수 자체에는 이름이 붙어있지 않고 함수식을 변수에 할당하는 방식
+            // let outputHello = function() {alert("안녕하세요");}
+            
+            // 매개변수 (파라미터 parameter)
+//            function outputHello(name){
+//                alert(name+"님 안녕하세요!");
+//            }
+//            outputHello("홍길동");
+            
+            //return (반환)
+//            function outputHello(name){
+//                let message = name + "님 안녕하세요!";
+//                console.log(message); //"홍길동님 안녕하세요!
+//                return message;
+//            }
+//            alert(outputHello("홍길동")); // 함수를 호출 후 리턴받는 결과값을 alert에 띄운다.
+            
+            //매개변수를 여러개 사용 가능함.
+//            function addition(number1, number2){
+//                return number1 + number2;
+//            }
+//            console.log(addition(3, 5));
+//            console.log(addition(10, 5));
+            
+            function userInfo(name, addr){
+                let message = name + "님은 " + addr + "의 주민 입니다.";
+                return message;
+            }
+            let a = "홍길동";
+            let b = "서초구";
+            
+            alert(userInfo(a, b));
+        </script>
+    </body>
+</html> 
