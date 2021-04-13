@@ -37,14 +37,26 @@
 //            console.log(addition(3, 5));
 //            console.log(addition(10, 5));
             
-            function userInfo(name, addr){
-                let message = name + "님은 " + addr + "의 주민 입니다.";
-                return message;
-            }
-            let a = "홍길동";
-            let b = "서초구";
+//            function userInfo(name, addr){
+//                let message = name + "님은 " + addr + "의 주민 입니다.";
+//                return message;
+//            }
+//            let a = "홍길동";
+//            let b = "서초구";
+//            
+//            alert(userInfo(a, b));
             
-            alert(userInfo(a, b));
+            // 함수를 매개변수의 인자로 전달하는 콜백함수 방식 
+            function outputHello(name, func){
+                let txt = name + "님 안녕하세요!";
+                func(txt); //콜백 함수 구현부
+                
+            }
+            function makeAlert(txt){
+                alert(txt);
+            }
+            let name = "홍길동";
+            outputHello(name, makeAlert);
         </script>
     </body>
 </html> 
