@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>slider</title>
+        <style>
+            *{margin: 0; padding: 0;}
+            li {list-style: none;}
+            .slide_box {
+                width: 200px;
+                height: 50px;
+                position: relative;
+                left: 40%;
+                top: 200px;
+                border: 2px solid #000000;
+                overflow: hidden;
+            }
+            .slide_container{
+                /* 200px * 5개 슬라이드 = 총 1000px */
+                width: 1000px;
+            }
+            .slide{
+                width:200px;
+                height: 50px;
+                float: left;
+            }
+            .slide a{
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                text-decoration: none;
+                color: #000000;
+            }
+            /*5, 3, 1 슬라이드*/
+            .slide:nth-child(odd){
+                background-color: dodgerblue;
+            }
+            /* 2, 4 슬라이드*/
+            .slide:nth-child(2n){
+                background-color: lightgray;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slide_box">
+            <ul class="slide_container">
+                <li class="slide">
+                    <a href="https://www.naver.com">Slide 1</a>
+                </li>
+                <li class="slide">
+                    <a href="https://www.naver.com">Slide 2</a>
+                </li>
+                <li class="slide">
+                    <a href="https://www.naver.com">Slide 3</a>
+                </li>
+                <li class="slide">
+                    <a href="https://www.naver.com">Slide 4</a>
+                </li>
+                <li class="slide">
+                    <a href="https://www.naver.com">Slide 5</a>
+                </li>
+            </ul>
+        </div>
+        <script>
+            let ul = document.querySelector(".slide_container");
+            console.log(ul);
+            function move(){
+                let n = 0;
+                // 5개
+                let count = document.getElementsByClassName("slide").length;
+                // translateX() : 수평방향의 위치를 제어
+                // 자바스크립트로 css를 제어 
+                // 요소.style.속성 = 속성값
+                // -200px > -400px > -600px
+                /*
+                    일정한 시간 간격으로 함수를 호출한다.
+                    setInterval(실행함수, 실행간격ms)
+                */
+                setInterval(function(){
+                    ul.style.transition = "0.2s";
+                    ul.style.transform = "translateX(-"+200*(n+1)+"px)";
+                    console.log("-"+200*(n + 1)+"px");
+                    n++;
+                    //n이 가진 값이 마지막 슬라이드인 4가 되면 다시 n은 다시 -1이 된다. 
+                    if(n === count-1){
+                        n = -1;
+                    }
+                }, 3000)
+            }
+            move();
+        </script>
+    </body>
+</html>
