@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>모달창 띄우기</title>
+        <style>
+            button {
+                background-color: #e30b57;
+                padding: 10px 15px;
+                border: 0;
+                border-radius: 4px;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            button:hover {
+                background-color: #ad0c45;
+            }
+            .modal{
+                display: flex;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 60%;
+                align-items: center;
+                justify-content: center;
+            }
+            .modal .bg {
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                opacity: 60%;
+            }
+            .modal .modal_box {
+                position: absolute;
+                padding: 10px;
+                width: 400px;
+                height: 200px;
+                background-color: white;
+                border-radius: 12px;
+            }
+            .close_btn {
+                float: right;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="show_btn">신청하기</button>
+        <div class="modal hidden">
+            <div class="bg"></div>
+            <div class="modal_box">
+                <button class="close_btn">X</button>
+                <h4>잠깐! 사기꾼 조회 먼저 하셨나요?</h4>
+            </div>
+        </div>
+        <script>
+            
+            // 모달창을 보여주는 함수 (hidden 클래스를 제거하는 함수)
+            function show(){
+                document.querySelector(".modal").classList.remove("hidden");
+            }
+            
+            // 모달창을 닫아주는 함수 (hidden 클래스릋 추가하는 함수)
+            function close(){
+                document.querySelector(".modal").classList.add("hidden");
+            }
+            
+            /* addEventListener : 요소의 이벤트와 특정 함수(기능)을 연결시키는 또 하나의 방법 */
+            /* onEvent 와 addEventListener의 차이 
+                onEvent는 하나의 콜백(연결되는 하나의 함수)만 지정할 수 있다.
+                onEvent로 여러개의 이벤트 함수를 등록하면 가장 마지막 이벤트가 이전에 등록된 이벤트를 덮어씀 (overwrite)
+                addEventListener는 여러개의 이벤트를 등록할 수 있다. (익스플로러8 이하세어 작동 안함)
+            */
+            
+            document.querySelector(".show_btn").addEventListener("click", show);
+            document.querySelector(".close_btn").addEventListener("click", close);
+            document.querySelector(".bg").addEventListener("click", close);
+
+            
+        </script>
+    </body>
+</html>

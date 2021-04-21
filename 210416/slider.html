@@ -6,12 +6,16 @@
             li {list-style: none;}
             .slide_box {
                 width: 200px;
-                height: 50px;
+                height: 100px;
                 position: relative;
                 left: 40%;
                 top: 200px;
-                border: 2px solid #000000;
                 overflow: hidden;
+                border-radius: 12px;
+                /* 요소 그림자 처리 */
+                /* offset-x offset-y blur-radius spread-radius color*/
+                box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+                
             }
             .slide_container{
                 /* 200px * 5개 슬라이드 = 총 1000px */
@@ -19,7 +23,7 @@
             }
             .slide{
                 width:200px;
-                height: 50px;
+                height: 100px;
                 float: left;
             }
             .slide a{
@@ -38,25 +42,39 @@
             .slide:nth-child(2n){
                 background-color: lightgray;
             }
+            img {
+                width: 100%;
+                height: 100%;
+            }
         </style>
     </head>
     <body>
         <div class="slide_box">
             <ul class="slide_container">
                 <li class="slide">
-                    <a href="https://www.naver.com">Slide 1</a>
+                    <a href="https://www.naver.com">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Smile_Image.png"/>
+                    </a>
                 </li>
                 <li class="slide">
-                    <a href="https://www.naver.com">Slide 2</a>
+                    <a href="https://www.naver.com">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Settings_app_icon.png"/>
+                    </a>
                 </li>
                 <li class="slide">
-                    <a href="https://www.naver.com">Slide 3</a>
+                    <a href="https://www.naver.com">
+                        <img src="https://e7.pngegg.com/pngimages/447/479/png-clipart-whatsapp-computer-icons-whatsapp-text-whatsapp-icon.png"/>
+                    </a>
                 </li>
                 <li class="slide">
-                    <a href="https://www.naver.com">Slide 4</a>
+                    <a href="https://www.naver.com">
+                        <img src="https://w7.pngwing.com/pngs/397/474/png-transparent-black-snapchat-logo-illustration-computer-icons-instagram-logo-area-smile.png"/>
+                    </a>
                 </li>
                 <li class="slide">
-                    <a href="https://www.naver.com">Slide 5</a>
+                    <a href="https://www.naver.com">
+                        <img src="https://img.icons8.com/pastel-glyph/2x/search.png"/>
+                    </a>
                 </li>
             </ul>
         </div>

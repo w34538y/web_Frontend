@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>scope</title>
+    </head>
+    <body>
+        <script>
+//            let a = "전역변수 a";
+//            
+//            function myFunc(){
+//                let a = "지역변수 a";
+//                console.log("함수 내부에서 접근한 a: ",a);
+//            }
+//            myFunc();
+//            console.log("함수 외부에서 접근한 a: ",a);
+            
+            let a = "global";
+            
+            function myFunc(){
+                let b = "loacl";
+                //전역변수는 가장 상단 위치에 선언되어 객체 내부에서도 접근 가능하다.
+                console.log("전역변수인 a에 접근하기 : ",a);
+                //지역변수는 함수내에서만 선언되어 객체 외부에서 접근이 불가능하다. 
+                console.log("지역변수인 b에 접근하기 : ",b);
+            }
+            myFunc();
+            //console.log("myFunc()함수 안에 선언된 지역변수 b를 바깥에서 접근하기 : ",b) //Uncaught ReferenceError: b is not defined
+        </script>
+    </body>
+</html>
