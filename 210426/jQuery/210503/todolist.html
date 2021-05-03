@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>to do list</title>
+        <script src="../lib/jquery-3.6.0.min.js"></script>
+        <script src="https://kit.fontawesome.com/741db21477.js" crossorigin="anonymous"></script>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                
+            }
+            body{
+                background: linear-gradient(to right, lightsteelblue, white);
+            }
+            .container{
+                width: 800px;
+                margin: 100px auto;
+                padding: 20px;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            .input_text {
+                width: 100%;
+                border: 0px;
+                outline: none;
+                border-bottom: 2px solid #636363;
+                background: none;
+                padding-bottom: 10px;
+            }
+            h3 {
+                color: #636363;
+                margin: 10px 0;
+            }
+            .task {
+                width: 100%;
+                background: rgba(255, 255, 255, 0.5);
+                padding: 18px;
+                margin: 6px 0;
+                box-sizing: border-box;
+            }
+            .task i {
+                float: right;
+                margin-left: 20px;
+                cursor: pointer;
+            }
+            .complete {
+                border-top: 2px dotted #636363;
+            }
+            .complete .task {
+                background-color: rgba(0, 0, 0, 0.5);
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <input class="input_text" type="text" placeholder="내용을 입력해주세요."/>
+            <div class="todo">
+                <h3><!--체크박스 아이콘 -->
+                    <i class="fas fa-edit"></i>
+                    할 일 목록
+                </h3>
+                <div class="task">
+                    <i class="fas fa-trash"></i>
+                    <i class="far fa-check-circle"></i>
+                </div>
+            </div>
+            <div class="complete">
+                <h3>
+                    <i class="fas fa-bookmark"></i>
+                    완료 목록
+                </h3>
+                <div class="task">
+                    <i class="fas fa-trash"></i>
+                </div>
+            </div>
+        </div>
+        <script>
+            // 키보드 누르고 땔 때 발생하는 이벤트 Keyup 
+            $(".input_text").on("keyup", function(e){
+                // 이벤트가 발생되었을때 자동으로 넘어오는 객체 
+                // 해당 이벤트에 대한 정보가 담겨 있음 
+                //console.log(e.keyCode); // enter키는 키코드 13을 가짐 
+                
+                // 사용자가 엔터키를 누른 상태이면서 동시에 사용자가 입력한 값이 공백이 아닐 때
+                let input_val = $(".input_text").val();
+                if(e.keyCode == 13 && input_val != ""){
+                    
+                    // 태그를 동적으로 생성하고 붙여줄 땐 $("html 코드")의 형식으로 작성한다. 
+                    // 만들어줄 목록 생성
+                    let task = $("<div class='task'></div>").text(input_val);
+                    
+                    // 태그를 적절한 위치에 넣어주는 처리 
+                    // 부모의 마지막 자식 요소로 추가한다. 
+                    $(".todo").append(task);
+                    $(".input_text")
+                }
+            });
+        </script>
+    </body>
+</html>

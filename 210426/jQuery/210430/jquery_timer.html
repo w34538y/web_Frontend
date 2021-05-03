@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>timer</title>
+        <!-- CDN(Contents Delivery Network) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <!-- <script src="../lib/jquery-3.6.0.min.js"></script> -->
+        <style>
+            body {
+                background-color: white;
+                font-size: 50px;
+                font-weight: bold;
+            }
+            .container {
+                margin: 30% auto;
+                text-align: center;
+                background-color: darkturquoise;
+                width: 230px;
+                border-radius: 12px;
+                box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.3);
+            }
+            #sec {
+                font-size: 30px;
+            }
+        </style>
+        <script>
+            $(function(){
+                // 매개변수로 '시' 값을 받는다 
+               function setTimer(duration){
+                   let timer = duration * 3600;
+                   let hours, minutes, seconds = 0;
+                   
+                   
+                   
+                   //setInterval(실행함수, 시간) : 지정한 시간 간격으로 함수 실행
+                   let interval = setInterval(function(){
+                       // 1초 간격으로 일정하게 실행할 계산 로직 작성
+                       
+                       // parseInt(변환할 값 ) : 문자열 데이터 타입을 정수 형태로 변환해주는 함수(형변환)
+//                       let test = "3";
+//                       console.log(typeof test);
+//                       console.log(typeof parseInt(test));
+                       // parseInt(변환할 값, 10) : 십진수로 변환하기
+                       // parseFloat() :  소수점 변환
+                       // 초를 시간 단위로 변환
+                       hours = parseInt(timer / 3600, 10);
+                       
+                       // 초를 분 단위로 변환
+                       minutes = parseInt(timer / 60 % 60, 10);
+                       seconds = parseInt(timer % 60, 10);
+                       
+                       // 자리수 맞춰주기 
+                       if(hours < 10){
+                           hours = "0"+hours;
+                       }
+                       if(minutes < 10){
+                           minutes = "0"+minutes;
+                       }
+                       if(seconds < 10){
+                           seconds = "0"+seconds;
+                       }
+                       
+                       // html 요소에 넣어주기
+                       $("#hour").text(hours);
+                       $("#min").text(minutes);
+                       $("#sec").text(seconds);
+                       
+                       //timer 값이 변화
+                       // 타이머 로직의 종료 조건 
+                       // 1씩 감소하다가 0미만인 음수값이 되면 전역변수 timer의 값을 0으로 변경한다. 
+                       if(--timer < 0){
+                           timer = 0;
+                           clearInterval(interval);
+                       }
+                   }, 1000);
+               } 
+                setTimer(24);// 시간 단위를 입력
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <span id="hour">00</span>:
+            <span id="min">00</span>:
+            <span id="sec">00</span>
+        </div>
+    </body>
+</html>
