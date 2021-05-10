@@ -59,19 +59,12 @@
                     <i class="fas fa-edit"></i>
                     할 일 목록
                 </h3>
-                <div class="task">
-                    <i class="fas fa-trash"></i>
-                    <i class="far fa-check-circle"></i>
-                </div>
             </div>
             <div class="complete">
                 <h3>
                     <i class="fas fa-bookmark"></i>
                     완료 목록
                 </h3>
-                <div class="task">
-                    <i class="fas fa-trash"></i>
-                </div>
             </div>
         </div>
         <script>
@@ -89,10 +82,54 @@
                     // 만들어줄 목록 생성
                     let task = $("<div class='task'></div>").text(input_val);
                     
+                    
+                    // 삭제 처리 해줄 버튼
+                    let trash = $("<i class='fas fa-trash'></i>").click(function(){
+                        // 삭제할 요소 선택
+                        let clicked_icon = $(this);
+                        let clicked_task = clicked_icon.parent();
+                        
+                        // 삭제할 요소를 서서히 사라지게 하고 화면에서 사라진 후에는 아예 요소 자체를 제거 처리한다.
+                        clicked_task.fadeOut(300, "linear", function(){
+                            $(".complete").remove(task)
+                        });
+                    });
+                    task.append(trash);
+                    
+                    // 완료 목록으로 보내줄 버튼 
+                    // 완료 버튼 역할을 할 아이콘과 그 아이콘에 연결된 이벤트 함수를 모두 check 변수에 저장
+                    let check = $("<i class='far fa-check-circle'></i>").click(function(){
+                        // 완료 버튼을 클릭했을 때 실행될 내용
+                        
+                        // 클릭된 아이콘의 부모요소를 얻어온다. 
+                        let clicked_icon = $(this);
+                        let clicked_task = clicked_icon.parent();
+                        console.log(clicked_task);
+                        
+                        // 완료 목록으로 보내기 위한 처리
+                        // fadeOut(): 선택한 요소를 서서히 사라지게 만드는 효과
+                        // fadeOut(진행시간ms, 서서히 사라질 때의 모양(linear/swing), 사라진후 실행되는 콜백함수)
+                        // 기본값 : 400ms, swing
+                        clicked_task.fadeOut(300, "linear", function(){
+                            //사라지는 처리가 끝난 후 완료목록에 리스트를 붙여준다. 
+                            $(".complete").append(clicked_task);
+                        
+                            // 서서히 보이기 
+                            // fadeIn()
+                            clicked_task.fadeIn(function(){
+                                console.log("완료목록으로 잘 이동했음"); 
+                            });
+                            // 완료 처리 버튼을 제거한다.
+                            clicked_icon.remove();
+                        });
+                        
+                    });
+                    task.append(check);
+                    
                     // 태그를 적절한 위치에 넣어주는 처리 
                     // 부모의 마지막 자식 요소로 추가한다. 
                     $(".todo").append(task);
-                    $(".input_text").val("")
+                    $(".input_text").val("");
                 }
             });
         </script>
