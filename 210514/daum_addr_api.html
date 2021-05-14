@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    </head>
+    <body>
+        <button onclick="searchAddress()">주소 검색하기</button>
+        <div class="addr_wrapper">
+            
+        </div>
+        <div class="detail_addr_wrapper">
+        
+        </div>
+        <script>
+            function searchAddress(){
+                new daum.Postcode({
+                    oncomplete: function(data) {
+                        console.log("선택한 주소 : ", data);
+                        console.log("주소 : ", data.address);
+                        console.log("우편번호 : ", data.zonecode);
+                    }
+                }).open();
+            }
+</script>
+    </body>
+</html>

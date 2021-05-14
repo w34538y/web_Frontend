@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>검색창</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        <style>
+            body{
+                background-color: gainsboro;
+                margin: 0;
+                padding: 0;
+            }
+            .search_wrapper {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin: 100px auto 0;
+                padding: 6px 12px;
+                width: 500px;
+                box-sizing: border-box;
+                background-color: #eec4c4;
+                border-radius: 40px;
+            }
+            input {
+                outline-style: none;
+                flex:1;
+                padding: 12px 0;
+                border: 0;
+                background-color: #eec4c4;
+                font-size: 17px;
+                font-weight:600;
+                color: #c46475;
+            }
+            input::placeholder{
+                color:#da7f8f;
+            }
+            i.fa-search {  
+                padding: 12px;
+                color: #da7f8f;
+            }
+            .result_wrapper {
+                margin: 12px auto;
+                widows: 500px;
+                box-sizing: border-box;
+            }
+            .line {
+                padding: 8px;
+                background-color: white;
+                color:#707070
+            }
+            .line.no_data {
+                color: #a1a1a1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="search_wrapper">
+            <i class="fas fa-search fa-lg"></i>
+            <input placeholder="검색어를 입력해주세요" class="search_box"/>
+        </div>  
+        <div class="result_wrapper">
+        </div>
+        <script>
+            $("input").on("keyup", function(){
+                let value = $(this).val();
+                console.log(value);
+                if(value != ""){
+                    $.ajax({
+                        url: "http://kimdev.cafe24.com:3000/mega/test/name",
+                        method:"GET",
+                        data: {keyword: value},
+                        dataType: "json",
+                        success:function(data){
+                            console.log(data);
+                            if(data.result){
+                                let list = data.data.result_list;
+                                let total = list.length;
+                                
+                                if(total > 0){
+                                    for(let i = 0; i < total; i++){
+                                        let ele = $("<div class='line'><div>").text(list[i].name);
+                                        $(".result_wrapper").append(ele);
+                                    }
+                                }
+                                else{
+                                    //검색 결과가 없을때
+                                    let ele = $("<div class='line no_data'>검색 결과가 없습니다<i class='far fa-sad-tear'></i></div>");
+                                    $(".result_wrapper").append(ele);
+                                }
+                            }
+                        },
+                        error:function(err){
+                            alert("오류가 발생하였습니다 ", err);
+                        } 
+                    });
+                }
+            })
+        </script>
+    </body>
+</html>

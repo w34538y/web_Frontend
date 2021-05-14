@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>ajax http 통신</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <style>
+        </style>
+    </head>
+    <body>
+        <button class="request">Call</button>
+        <img id="img_view"/>
+        <div id="bg_img_view"></div>
+        <script> 
+            $(".request").click(function(){
+                $.get("https://dog.ceo/api/breeds/image/random", function(data){
+                    console.log("서버로부터 받은 Response Data: ", data.message);
+//                    $("#img_view").attr("src",data.message);
+                    $("#bg_img_view").css("background-image", `url(${data.message})`);
+                });
+            });
+            $.ajax({
+                url:"https://api.coindesk.com/v1/bpi/currentprice.json",
+                method: "GET",
+                dataType: "json",
+                success:function(data){
+                    console.log(data);
+                    console.log(data.bpi.EUR.symbol);
+                    //html() 선택한 대상 요소를 가져오거나 새로 넣어줄 때 사용
+                    $("#bg_img_view").html(`<strong style="font-size:80px">${data.bpi.EUR.symbol}</strong>`); 
+                },
+                error:function(){
+                    alert("오류가 발생하였습니다");
+                }  
+            });
+        </script>
+    </body>
+</html>

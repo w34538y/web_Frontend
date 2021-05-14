@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>ajax http 통신</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <style>
+            #memo {
+                padding: 20x;
+                width: 200px;
+                height: 100px;
+                box-sizing: border-box;
+                background-color: blanchedalmond;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="request">iris</button>
+        <button class="request">jane</button>
+        <button class="request">luke</button>
+        <div id="memo"></div>
+        <script>
+            $(".request").click(function(){
+                let selected_name = $(this).text();
+                
+               $.ajax({
+                   url: "https://api.genderize.io",
+                   data: {name : selected_name },
+                   method: "GET",
+                   dataType: "json",
+                   success : function(data){
+                       console.log("response data ", data);
+                       console.log("gender ", data.gender);
+                       console.log("count ", data.count);
+                       console.log("probability ", data.probability);
+                       
+                       $("#memo").text(data.name + " >> " + data.gender);
+                   },
+                   error : function(err){
+                       console.log("error data ", err);
+                       alert("server error, please try again");
+                   }
+               }); 
+            });
+        </script>
+    </body>
+</html>
