@@ -77,14 +77,16 @@
                                 
                                 if(total > 0){
                                     for(let i = 0; i < total; i++){
-                                        let ele = $("<div class='line'><div>").text(list[i].name);
+                                        let ele = $("<div class='line result'><div>").text(list[i].name);
                                         $(".result_wrapper").append(ele);
+                                        $(".no_data").remove();
                                     }
                                 }
                                 else{
                                     //검색 결과가 없을때
                                     let ele = $("<div class='line no_data'>검색 결과가 없습니다<i class='far fa-sad-tear'></i></div>");
                                     $(".result_wrapper").append(ele);
+                                    $(".result").remove();
                                 }
                             }
                         },
@@ -94,6 +96,7 @@
                     });
                 }
             })
+            
         </script>
     </body>
 </html>
