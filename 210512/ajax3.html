@@ -3,6 +3,10 @@
         <title>ajax http 통신</title>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <style>
+            img {
+                width: 300px;
+                height: 200px;
+            }
         </style>
     </head>
     <body>
@@ -14,7 +18,7 @@
                 $.get("https://dog.ceo/api/breeds/image/random", function(data){
                     console.log("서버로부터 받은 Response Data: ", data.message);
 //                    $("#img_view").attr("src",data.message);
-                    $("#bg_img_view").css("background-image", `url(${data.message})`);
+                    $("#img_view").css("background-image", `url(${data.message})`);
                 });
             });
             $.ajax({
