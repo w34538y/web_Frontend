@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <style>
+            input { outline-style: none; border: 0 }
+            .addr_wrapper {
+                margin: 60px;
+                width: 800px;
+            }
+            .line {
+                margin-top: 12px;
+                display: flex;
+                flex-direction: row;
+                border: 2px solid #484f75;
+                font-size: 22px;
+            }
+            .type {
+                display: inline-block;
+                width: 100px;
+                padding: 10px 0;
+                text-align-last: center;
+                background-color: #484f75;
+                color: white;
+                font-weight: 600;
+            }
+            .value {
+                flex: 1;
+                padding: 10px 0 0 10px;
+                background-color: white;
+                color: gray;
+            }
+            .address2 {
+                flex: 1;
+                padding-left: 10px;
+                font-size: 22px;
+            }
+            .address2::placeholder {
+                color: gray;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="addr_wrapper">
+            <div class="line" onclick="searchAddress();">
+                <span class="type">주소</span>
+                <div class="value">주소를 입력해주세요</div>
+            </div>
+            <div class="line">
+                <span class="type">상세 주소</span>
+                <input class="address2" placeholder="상세주소를 입력해주세요"/>
+            </div>
+        </div>
+        <script>
+            function searchAddress(){
+                new daum.Postcode({
+                    oncomplete: function(data) {
+                        let postal_code = data.zonecode;
+                        let address = data.address;
+                        $(".value").text("("+ postal_code + ") "+ address);
+                        $(".value").css("color", "black");
+                    }
+                }).open();
+            }
+        </script>
+    </body>
+</html>

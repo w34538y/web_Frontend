@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+            *{ margin: 0; padding: 0; }
+            body {
+                background-color: rgba(165, 210, 255, 0.4);
+                background-image: linear-gradient(90deg, rgba(165, 210, 255, .4) 50%, transparent 50%), linear-gradient(rgba(253, 136, 130, .2) 50%, transparent 50%);
+                background-size: 60px 60px;
+                background-attachment: fixed;
+                font-family: 'Hanna', sans-serif;
+            }
+            .container {
+                display: inline-block;
+                width: 100%;
+            }
+            .section {
+                padding: 60px;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            .section.first {
+                height: 700px;
+                background-color: #2978b5;
+                color: #f8f5f1;
+            }
+            .section.second {
+                height: 550px;
+            }
+            .section.third {
+                height: 800px;
+                background-color: #ff8882;
+                color: #f8f5f1;
+            }
+            .section.last {
+                height: 650px;
+                
+            }
+            .cnt {
+                font-size: 100px;
+            }
+            #Sec1 {
+                letter-spacing: 7px;
+            }
+            #floated_menu {
+                position: fixed;
+                top: 0;
+                left: 25px;
+                display: inline-block;
+                width: 200px;
+                height: 600px;
+            }
+            #floated_menu img {
+                width: 100%;
+                height: 100%;
+            }
+            #menu_list {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+            }
+            #menu_list div {
+                padding: 20px 0;
+                text-align: center;
+                font-size: 30px;
+                font-weight: 800;
+                color: white;
+                cursor: pointer;
+            }
+            #menu_list div:hover {
+                /* 
+                    text-shadow : x y blur(생략가능 - 기본값 0) color;
+                    text-shadow : 2px 0px 2px #ebebeb;
+                */
+                text-shadow: 2px 0 #3d3d3d, 0 2px #3d3d3d, 3px 3px #3d3d3d, 3px 3px #3d3d3d;
+            }
+            
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <!-- menu -->
+            <div id="floated_menu">
+                <img src="https://cdn.picpng.com/bookmark/the-ribbon-bookmark-85466.png"/>
+                <div id="menu_list">
+                    <div class="btn">Sec1</div>
+                    <div class="btn">Sec2</div>
+                    <div class="btn">Sec3</div>
+                    <div class="btn">Sec4</div>
+                </div>
+            </div>
+            <div class="section first">
+                <div class="cnt" id="Sec1">Typing Effect!</div>
+            </div>
+            <div class="section second">
+                <div class="cnt" id="Sec2">section 2</div>
+            </div>
+            <div class="section third">
+                <div class="cnt" id="Sec3">section 3</div>
+            </div>
+            <div class="section last">
+                <div class="cnt" id="Sec4">section 4</div>
+            </div>
+        </div>
+        <script>
+            // 메뉴 버튼 클릭시 이동 처리
+            $(".btn").click(function(){
+                let clicked = $(this).text();
+                // 대상요소.offset() : 대상 요소의 위치 정보를 객체 형태로 반환한다.
+                let offset = $(`#${clicked}`).offset().top;
+                // 수직 스크롤의 위치 조정
+                $("body").animate({ scrollTop: offset}, 500);
+            }); 
+            
+            // 글자 타이핑 효과 
+            let i = 0; // 반복문과 같은 처리를 위한 인덱스 값
+            let output = ""; // 화면에 출력될 문자를 저장하는 변수
+            let text = $("#Sec1").text(); // 원본 문구
+            let typing_text = text.split(""); // split("") : 글자를 한 글자 단위로 자르는 메소드 (split(",") : ,글자 기준으로 자름)
+            function typing(){
+                // 총 글자수 조건 
+                if(i < text.length){
+                    console.log(typing_text[i]);
+                    $("#Sec1").text(output += typing_text[i]);
+                    i++;
+                }else {
+                    // 원본 문구를 다 출력했을 때 
+                    // 초기화
+                    i = 0;
+                    output = "";
+                    $("#Sec1").text("");
+                }
+                console.log(typing_text);
+                
+                setTimeout(typing, 300);
+            }
+            typing();
+        </script>
+    </body>
+</html>
