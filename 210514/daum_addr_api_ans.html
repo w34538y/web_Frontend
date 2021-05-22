@@ -20,7 +20,7 @@
                 display: inline-block;
                 width: 100px;
                 padding: 10px 0;
-                text-align-last: center;
+                text-align: center;
                 background-color: #484f75;
                 color: white;
                 font-weight: 600;
@@ -56,6 +56,7 @@
             function searchAddress(){
                 new daum.Postcode({
                     oncomplete: function(data) {
+                        console.log(data);
                         let postal_code = data.zonecode;
                         let address = data.address;
                         $(".value").text("("+ postal_code + ") "+ address);
