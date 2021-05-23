@@ -64,12 +64,13 @@ footer {
 .header_menu {
     border: 2px solid #37383f;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
 }
 .header_menu .logo {
-    height: 30px;
-    border: 2px solid #37383f;
-    position: relative;
-    top: 10px;
+    height: 50px;
+    border-right: 2px solid #37383f;
     
 }
