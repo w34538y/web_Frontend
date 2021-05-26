@@ -46,19 +46,19 @@ footer {
     grid-template-columns: 7fr 3fr;
 }
 .row .stack {
-    background-image: url("/portfolio/image/main/stack.png");
+    background-image: url("../image/main/stack.png");
     background-size: cover;
 }
 .row .school {
-    background-image: url("/portfolio/image/main/school.jpeg");
+    background-image: url("../image/main/school.jpeg");
     background-size: cover;
 }
 .row .photo {
-    background-image: url("/portfolio/image/main/photo.jpg");
+    background-image: url("../image/main/photo.jpg");
     background-size: cover;
 }
 .row .dj {
-    background-image: url("/portfolio/image/main/dj.jpeg");
+    background-image: url("../image/main/DJ.jpeg");
     background-size: cover;
 }
 .header_menu {
