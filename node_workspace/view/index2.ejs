@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>타이틀</title>
+        <style>
+            span:first-child{
+                border-bottom: 5px solid red;
+            }
+            span {
+                display: inline-block;
+                padding-bottom: 10px;
+                font-size: 30px;
+                border-bottom: 5px solid blue;
+            }
+            span:last-child {
+                border-bottom: 5px solid gray;
+            }
+            div {
+                margin: 20px auto 0 auto;
+                padding: 20px;
+                background-color: beige;
+            }
+        </style>
+    </head>
+    <body>
+        <% if(title.includes("상세페이지")) { %>
+        <h2>조건에 해당 되는 이름 : <%= title %></h2>
+        <% } else { %>
+            <h3>상세 페이지가 아님</h3>
+            <% } %>
+            <h2>index2.ejs view port</h2>
+    </body>
+</html>

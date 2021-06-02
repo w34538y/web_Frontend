@@ -31,10 +31,6 @@ app.get("/test", function(req,res){
 
 app.get("/main", function(req,res){
     console.log("main 호출 받음");
-    // res.render("index"); // render("출력할 뷰 페이지 이름")
-    // 1 남성 2 여성
-    // res.render("index", {title : '메인페이지', name: '홍길동' , phone:'010-1234-1234', gender:1});
-
     const array = [
         {name: '홍길동' , phone:'010-1234-1234', gender:1}, 
         {name: '이몽룡' , phone:'010-0000-1234', gender:1}, 
