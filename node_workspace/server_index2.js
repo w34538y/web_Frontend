@@ -25,8 +25,8 @@ app.listen(port, function(error){
 
 app.get("/main", function(req,res){
     console.log("main 호출 받음");
-    res.render("index"); // render("출력할 뷰 페이지 이름")
+    res.render("index2"); // render("출력할 뷰 페이지 이름")
     // 1 남성 2 여성
-    res.render("index", {title : '메인페이지', name: '홍길동' , phone:'010-1234-1234', gender:1});
+    res.render("index2", {title : '메인페이지', name: '홍길동' , phone:'010-1234-1234', gender:1});
 
 });
