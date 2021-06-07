@@ -16,5 +16,14 @@ const Router = function(app){
         MainController.mainView(req, res);
     });
 
+    app.post('/add', function(req, res){
+        MainController.addUser(req, res);
+    });
+
+    const DetailController = require("./controlloers/detailController");
+
+    app.get("/detail/:index", function(req, res){
+        DetailController.detailView(req,res);
+    });
 };
 module.exports = Router;

@@ -4,20 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <title>메인페이지</title>
 </head>
 <body>
     <h4>메인 페이지</h4>
+    <div class="form-container">
+        <form class="ui form" action="/add" method="post">
+            <div class="fields">
+              <div class="field">
+                <label>이름</label>
+                <input type="text" name="name" placeholder="이름 입력">
+              </div>
+              <div class="field">
+                <label>부서</label>
+                <input type="text" name="department" placeholder="부서 입력">
+              </div>
+              <div class="field">
+                <label>직급</label>
+                <input type="text" name="position" placeholder="직급 입력">
+              </div>
+            </div>
+            <button class="ui red button" type="submit">
+                등록하기
+            </button>
+        </form>
+    </div>
     <% if(list.length <= 0) { %>
         <h3>데이터 없음</h3>
         <%} else { %> 
+            <div class="ui list">
         <% list.forEach(function(item){  %>
-            <div>
-                <span><%= item.name %></span>
-                <span><%= item.department %></span>
-                <span><%= item.position %></span>
-            </div>  
+            <div class="item">
+                <img class="ui avatar image" src="<%= item.image %>">
+                <div class="content">
+                  <a class="header" href="/detail/<%=item.index%>"><%= item.name %></a>
+                  <div class="description"><%=item.name%>님은 <%=item.department%>의 <%=item.position%>입니다.</div>
+                </div>
+            </div>
         <% }); %>
+            </div>
     <% } %> 
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </body>
 </html>
