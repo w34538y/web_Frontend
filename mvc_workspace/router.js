@@ -19,6 +19,10 @@ const Router = function(app){
     app.post('/add', function(req, res){
         MainController.addUser(req, res);
     });
+    
+    app.post('/create/new', function(req,res){
+        MainController.createNewUser(req,res);
+    });
 
     const DetailController = require("./controlloers/detailController");
 

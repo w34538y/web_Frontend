@@ -3,11 +3,11 @@ const MainModel = function(){
     const model = require('./Model');
 
     const get_department_value_ = function(data,callback){
-        model.run("SELECT * FROM hr_department",data,callback);
+        model.run("SELECT * FROM hr_department", data, callback);
     }
 
     const get_position_value_ = function(data,callback){
-        model.run("SELECT * FROM hr_position",data,callback);
+        model.run("SELECT * FROM hr_position", data, callback);
     }
 
     const get_list_ = function(data,callback){
