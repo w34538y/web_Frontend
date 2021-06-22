@@ -4,8 +4,8 @@ const settings = {
         host : "localhost",
         port : "3306",
         user : "root",
-        password : "root132",
-        database : "mega"
+        password : "fi8989132",
+        database : "sys"
     }
 }
 module.exports = settings;
