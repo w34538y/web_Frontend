@@ -2,11 +2,11 @@ const MainModel = function(){
     // 메인이 되는 대표 모델을 불러온다
     const model = require('./Model');
 
-    const get_department_value_ = function(data,callback){
+    const get_department_value_ = function(data, callback){
         model.run("SELECT * FROM hr_department", data, callback);
     }
 
-    const get_position_value_ = function(data,callback){
+    const get_position_value_ = function(data, callback){
         model.run("SELECT * FROM hr_position", data, callback);
     }
 
@@ -20,7 +20,8 @@ const MainModel = function(){
     };
 
     const create_new_user_ = function(data,callback) {
-        model.run("INSERT hr (hr_name, hr_department, hr_position) VALUES (:hr_name, :hr_department, :hr_position)", data,callback);
+        model.run("INSERT hr (hr_name, hr_department, hr_position, hr_memo) \
+        VALUES (:hr_name, :hr_department, :hr_position, :hr_memo)", data, callback);
     }
 
     return {

@@ -6,7 +6,8 @@ const DetailController = function(){
     const detail_model = require('../models/DetailModel');
 
     const detailViewRender = function(req,res){
-        
+        console.log(req.params.hr_idx);
+
         const getData = function(){
             return new Promise(function(resolve){
                 // console.log('주소를 통해 넘겨받은 글 번호 :', req.params.index);
@@ -34,7 +35,6 @@ const DetailController = function(){
                         resolve(rows[0]);
                     }
                 });
-                resolve(data);
             });
         };
 

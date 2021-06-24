@@ -15,7 +15,7 @@ const Init = function(){
 
     return {
         event : function(){
-            $('#trash').on('click', show_delete_modal);
+            $('#trash_icon').on('click', show_delete_modal);
             $('#delete_btn').on('click', delete_user);
         },
     }
