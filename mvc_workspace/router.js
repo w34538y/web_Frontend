@@ -24,9 +24,9 @@ const Router = function(app){
         MainController.createNewUser(req,res);
     });
 
-    const DetailController = require("./controlloers/detailController");
+    const DetailController = require("./controlloers/DetailController");
 
-    app.get("/detail/:index", function(req, res){
+    app.get("/detail/:hr_idx", function(req, res){
         DetailController.detailView(req,res);
     });
 };

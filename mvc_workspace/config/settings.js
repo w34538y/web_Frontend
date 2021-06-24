@@ -5,7 +5,7 @@ const settings = {
         port : "3306",
         user : "root",
         password : "fi8989132",
-        database : "sys"
+        database : "mega"
     }
 }
 module.exports = settings;
