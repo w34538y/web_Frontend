@@ -11,6 +11,24 @@ const Init = function(){
         // 2) http 통신을 통한 처리 결과
         // 3) 삭제 처리 성공일 시 main 호출 (메인 리스트 화면으로 이동 )
         // 4) 삭제 처리 실패일 시 alert()로 문제 발생 안내 
+        $.ajax({
+            url: '/detail/delete/'+hr_idx,
+            method : 'DELETE',
+            dataType : 'json',
+            success : function(data){
+                // http 통신 (삭제 요청) 결과 처리
+                console.log("삭제 요청에 대한 응답 결과 : ", data);
+                if(data.result){
+                    location.href = '/main';
+                } else {
+                    alert("문제 발생");
+                }
+            },
+            error : function(){
+                console.log('에러 발생', err);
+                alert("문제가 발생하였습니다. 잠시후에 다시 시도해주세요");
+            }
+        });
     }
 
     return {

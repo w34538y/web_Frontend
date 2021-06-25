@@ -30,5 +30,17 @@ const Router = function(app){
     app.get("/detail/:hr_idx", function(req, res){
         DetailController.detailView(req,res);
     });
+
+    app.delete("/detail/delete/:hr_idx", function(req, res){
+        DetailController.detailDeleteUser(req, res);
+    });
+    
+    app.get('/detail/edit/form/:hr_idx', function(req, res){
+        DetailController.detailEditFormView(req, res);
+    });
+
+    app.post('/detail/update/:hr_idx', function(req,res){
+        DetailController.detailUpdateUser(req,res);
+    });
 };
 module.exports = Router;
