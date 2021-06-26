@@ -1,6 +1,6 @@
 const DetailController = function(){
-    const Model = require('../models/Model');
-    const test_model = require('../models/TestModel');
+    // const Model = require('../models/Model');
+    // const test_model = require('../models/TestModel');
     const detail_model = require('../models/DetailModel');
     const main_model = require('../models/MainModel');
 
