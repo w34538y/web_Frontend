@@ -13,7 +13,7 @@ const Model = function(){
                   return txt;
                 }.bind(this));
               };
-            //   connection.query("SQL 구문", 객체, 콜백함수);
+            // connection.query("SQL 구문", 객체, 콜백함수);
             connection.query(sql, obj, function(err, rows){
                 if(err){
                     console.log(err);
