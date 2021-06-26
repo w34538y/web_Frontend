@@ -5,7 +5,7 @@ const MainController = function (){
     // 호출에 맞는 기능을 관리하는 함수
     // 모델을 연결하는 파트
 
-    const test_model = require('../models/TestModel');
+    // const test_model = require('../models/TestModel'); 모델 테스트하느라 쓴거라 사용 안함
     const main_model = require('../models/MainModel');
 
     const mainViewRender = function(req,res){
