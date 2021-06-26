@@ -20,6 +20,8 @@ const DetailModel = function(){
     };
     
     return {
+        // MainController에서 호출하는 부분들
+        // 위에 정의된 함수들을 실행해준다. 
         getDetailData: function(data, callback){
             get_detail_data_(data, callback);
         },
