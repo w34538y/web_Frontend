@@ -143,9 +143,8 @@ const DetailController = function(){
                     res.json({result : false, msg : 'INTERNAL_SERVER_ERROR' });
                 } else {
                     console.log(rows);
-                    // 성공 시 클러이언트에 응답 보내기 (res)
-                    // res.json({ result : true });
-                    res.redirect("/");
+                    // 성공 시 상세페이지로 다시 연결해줌
+                    res.redirect("/detail/"+req.body.hr_idx);
                 }
             });
         }
