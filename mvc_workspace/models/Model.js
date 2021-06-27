@@ -1,7 +1,9 @@
+// 가장 기본이 되는 모델, SQL 실행을 위한 모델을 가지고 있음
 const Model = function(){
     const connection = require("../config/database");
 
     return {
+      // model.run으로 함수를 실행하면 아래의 함수를 실행해준다. 
         run : function(sql, obj, callback){
             //custom formatting
             connection.config.queryFormat = function (query, values) {

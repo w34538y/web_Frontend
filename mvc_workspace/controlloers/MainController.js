@@ -1,7 +1,5 @@
-const e = require('express');
-
+// 메인페이지에서 사용할 컨트롤러 
 const MainController = function (){
-
     // 호출에 맞는 기능을 관리하는 함수
     // 모델을 연결하는 파트
 
@@ -9,7 +7,7 @@ const MainController = function (){
     const main_model = require('../models/MainModel');
 
     const mainViewRender = function(req,res){
-        let data = {};
+        let data = {}; // sql로 불러들인 데이터를 객체 배열화 시키기 위한 변수
         
         // 부서 리스트 불러오기
         const getDepartmentList = function(){
@@ -60,6 +58,7 @@ const MainController = function (){
             res.render('home', data);
         };
 
+        //함수들을 비동기로 차례대로 실행시켜줌
         getDepartmentList().then(function(){
             return getPositionList();
         }).then(function(){
@@ -78,6 +77,7 @@ const MainController = function (){
             resolve : 이행 (fulfilled)
             reject : 실패 (rejected)
         */
+    // 사용자 추가 테스트 함수 
     const addUserProcess = function(req,res){
         const dataLog = () => {
             return new Promise(function(resolve, reject){
@@ -99,7 +99,9 @@ const MainController = function (){
             return renderView();
         });
     };
+    // 테스트 함수 끝
 
+    // 사용자 추가 함수
     const createNewUser = function(req,res){
         console.log("client로부터 넘겨받은 데이터 ", req.body);
         main_model.createNewUser(req.body, function(err, rows){
@@ -113,8 +115,9 @@ const MainController = function (){
     }
 
     return {
+        // 라우터에서 호출하는 부분
         mainView: function(req,res){
-            mainViewRender(req,res);
+            mainViewRender(req,res); // 라우터에서 호출되면 실행하는 함수
         },
         addUser: function(req,res) {
             addUserProcess(req,res);

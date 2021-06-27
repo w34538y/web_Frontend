@@ -3,6 +3,7 @@ const Router = function(app){
     // 주소에 맞는 기능을 가지고 있는 컨트롤러로 연결
     
     const MainController = require('./controlloers/MainController'); // 메인 컨트롤러 연결
+    const DetailController = require("./controlloers/DetailController"); // 디테일 컨트롤러 연결
     console.log(MainController);
 
     // 기본 도메인 접속시 메인 페이지 리다이렉트 시켜줌
@@ -10,6 +11,8 @@ const Router = function(app){
         console.log("redirect to main");
         res.redirect('/main');
     });
+
+    // MainController 연결 시작 부분
 
     // main 페이지 get 요청
     app.get('/main', function(req, res){
@@ -27,9 +30,10 @@ const Router = function(app){
     app.post('/create/new', function(req,res){
         MainController.createNewUser(req,res);
     });
+    // MainController 연결 끝 부분
 
-    const DetailController = require("./controlloers/DetailController"); // 디테일 컨트롤러 연결 
     
+    // DetailController 연결 부분
     // localhost:3000/detail/글번호 주소로 상세 페이지 연결
     app.get("/detail/:hr_idx", function(req, res){
         DetailController.detailView(req,res);

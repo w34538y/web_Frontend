@@ -1,5 +1,4 @@
-// 상세페이지에서 사용할 모델 페이지 
-
+// 상세페이지에서 사용할 모델
 const DetailModel = function(){
     // 메인이 되는 대표 모델을 불러온다
     const model = require('./Model');
@@ -18,15 +17,27 @@ const DetailModel = function(){
     const delete_user_ = function(data, callback){
         model.run("DELETE FROM hr WHERE hr_idx=:hr_idx", data, callback);
     };
+
+    // 상세페이지에서 사용자 정보를 수정한다. 
+    const update_user_ = function(data, callback){
+        model.run("UPDATE hr SET \
+        hr_name = :hr_name, \
+        hr_department = :hr_department, \
+        hr_position = :hr_position, \
+        hr_memo = :hr_memo WHERE hr_idx = :hr_idx", data, callback);
+    }
     
     return {
         // DetailController에서 호출하는 부분들
         // 위에 정의된 함수들을 실행해준다. 
-        getDetailData: function(data, callback){
+        getDetailData : function(data, callback){
             get_detail_data_(data, callback);
         },
-        deleteUser: function(data, callback){
+        deleteUser : function(data, callback){
             delete_user_(data, callback);
+        },
+        updateUser : function(data, callback){
+            update_user_(data, callback);
         }
     }
 };

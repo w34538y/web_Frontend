@@ -34,6 +34,7 @@
 
         <form class="ui form" action="/detail/update/<%= data.hr_idx %>" method="POST">
             <div class="three fields">
+              <input type="hidden" name="hr_idx" value="<%= data.hr_idx%>"/>
               <div class="field">
                 <label>이름</label>
                 <input type="text" name="hr_name" placeholder="이름을 입력하세요" value="<%= data.hr_name %>">

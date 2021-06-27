@@ -1,3 +1,4 @@
+// 상세 페이지에서 사용할 컨트롤러
 const DetailController = function(){
     // const Model = require('../models/Model');
     // const test_model = require('../models/TestModel');
@@ -133,7 +134,22 @@ const DetailController = function(){
 
     const updateUser = function(req, res){
         // 클라이언트로부터 넘겨 받은 수정데이터를 model에 넘겨 수정 sql을 실행시킨다.
-
+        const updating = function(){
+            detail_model.updateUser(req.body, function(err, rows){
+                if(err){
+                    console.log(err);
+                    // 실패 시 클라이언트에 응답 보내기 (res)
+                    // res.json(처리 결과 정보를 담고 있는 객체)
+                    res.json({result : false, msg : 'INTERNAL_SERVER_ERROR' });
+                } else {
+                    console.log(rows);
+                    // 성공 시 클러이언트에 응답 보내기 (res)
+                    // res.json({ result : true });
+                    res.redirect("/");
+                }
+            });
+        }
+        updating();
     }
     
     return {

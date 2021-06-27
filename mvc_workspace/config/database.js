@@ -1,3 +1,4 @@
+// 데이터베이스에 연결하기 위한 js파일 
 const mysql = require("mysql");
 const config = require("./settings");
 

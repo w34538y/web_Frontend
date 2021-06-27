@@ -1,3 +1,4 @@
+// 메인페이지에서 사용할 모델
 const MainModel = function(){
     // 메인이 되는 대표 모델을 불러온다
     const model = require('./Model');
