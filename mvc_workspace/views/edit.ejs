@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>직원 정보 수정</title>
     <style>
-        .container {
-          margin:20px auto;
-          padding:20px;
-          width:800px;
+        .form_container {
+            margin:20px auto;
+            padding:20px;
+            width:800px;
+            background-color:#edf5f4;
         }
         .ui.grid.mb {
           margin-bottom:4px;
@@ -34,7 +35,6 @@
 
         <form class="ui form" action="/detail/update/<%= data.hr_idx %>" method="POST">
             <div class="three fields">
-              <input type="hidden" name="hr_idx" value="<%= data.hr_idx%>"/>
               <div class="field">
                 <label>이름</label>
                 <input type="text" name="hr_name" placeholder="이름을 입력하세요" value="<%= data.hr_name %>">

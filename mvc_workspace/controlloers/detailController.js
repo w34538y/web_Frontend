@@ -134,8 +134,11 @@ const DetailController = function(){
 
     const updateUser = function(req, res){
         // 클라이언트로부터 넘겨 받은 수정데이터를 model에 넘겨 수정 sql을 실행시킨다.
+        let data = {};
+        data = req.body;
+        data.hr_idx = req.params.hr_idx;
         const updating = function(){
-            detail_model.updateUser(req.body, function(err, rows){
+            detail_model.updateUser(data, function(err, rows){
                 if(err){
                     console.log(err);
                     // 실패 시 클라이언트에 응답 보내기 (res)
@@ -144,7 +147,7 @@ const DetailController = function(){
                 } else {
                     console.log(rows);
                     // 성공 시 상세페이지로 다시 연결해줌
-                    res.redirect("/detail/"+req.body.hr_idx);
+                    res.redirect("/detail/"+data.hr_idx);
                 }
             });
         }

@@ -4,6 +4,7 @@ const Router = function(app){
     
     const MainController = require('./controlloers/MainController'); // 메인 컨트롤러 연결
     const DetailController = require("./controlloers/DetailController"); // 디테일 컨트롤러 연결
+    const SelectionController = require("./controlloers/SelectionController"); // 선택 항목 관리
     console.log(MainController);
 
     // 기본 도메인 접속시 메인 페이지 리다이렉트 시켜줌
@@ -53,6 +54,16 @@ const Router = function(app){
     app.post('/detail/update/:hr_idx', function(req,res){
         DetailController.detailUpdateUser(req,res);
     });
+    
+    // 선택 항목 관리
+    app.get('/department/edit/form', function(req, res){
+        SelectionController.departmentEditFormView(req, res);
+    });
+
+    app.get('/position/edit/form', function(req, res){
+        SelectionController.positionEditFormView(req, res);
+    });
+    
 };
 //라우터 모듈화
 module.exports = Router;
