@@ -55,6 +55,7 @@ const Router = function(app){
         DetailController.detailUpdateUser(req,res);
     });
     
+    // SelectionController 연결 부분
     // 선택 항목 관리
     app.get('/department/edit/form', function(req, res){
         SelectionController.departmentEditFormView(req, res);
@@ -63,7 +64,12 @@ const Router = function(app){
     app.get('/position/edit/form', function(req, res){
         SelectionController.positionEditFormView(req, res);
     });
-    
+    app.delete("/delete/position/form/:hr_select_idx", function(req, res){
+        SelectionController.deletePosition(req, res);
+    });
+    app.delete("/delete/department/form/:hr_select_idx", function(req, res){
+        SelectionController.deleteDepartment(req, res);
+    });
 };
 //라우터 모듈화
 module.exports = Router;

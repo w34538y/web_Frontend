@@ -4,6 +4,7 @@ const SelectionController = function (){
     // 모델을 연결하는 파트
 
     const main_model = require('../models/MainModel');
+    const selec_model = require('../models/SelectionModel');
 
     // 부서 관리 버튼을 누를시 실행되는 함수
     const departmentEditFormRender = function(req, res){
@@ -62,6 +63,43 @@ const SelectionController = function (){
             return view();
         });
     };
+    
+    const deleteposition = function(req, res){
+        const deleting = function(){
+            console.log(req);
+            selec_model.deletePosition({position_idx : parseInt(req.params.hr_select_idx)}, function(err, rows){
+                if(err){
+                    console.log(err);
+                    // 실패 시 클라이언트에 응답 보내기 (res)
+                    // res.json(처리 결과 정보를 담고 있는 객체)
+                    res.json({result : false, msg : 'INTERNAL_SERVER_ERROR' });
+                } else {
+                    console.log(rows);
+                    // 성공 시 클러이언트에 응답 보내기 (res)
+                    res.json({ result : true });
+                }
+            });
+        };
+        deleting();
+    }
+
+    const deletedepartment = function(req, res){
+        const deleting = function(){
+            selec_model.deleteDepartment({department_idx : parseInt(req.params.hr_select_idx)}, function(err, rows){
+                if(err){
+                    console.log(err);
+                    // 실패 시 클라이언트에 응답 보내기 (res)
+                    // res.json(처리 결과 정보를 담고 있는 객체)
+                    res.json({result : false, msg : 'INTERNAL_SERVER_ERROR' });
+                } else {
+                    console.log(rows);
+                    // 성공 시 클러이언트에 응답 보내기 (res)
+                    res.json({ result : true });
+                }
+            });
+        };
+        deleting();
+    }
 
     return {
         departmentEditFormView: function(req, res){
@@ -69,6 +107,12 @@ const SelectionController = function (){
         },
         positionEditFormView: function(req, res){
             positionEditFormRender(req, res);
+        },
+        deletePosition: function(req, res){
+            deleteposition(req, res);
+        },
+        deleteDepartment : function(req, res){
+            deletedepartment(req, res)
         }
     }
 
