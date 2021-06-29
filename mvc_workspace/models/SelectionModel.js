@@ -5,7 +5,7 @@ const SelectionModel = function(){
         model.run("DELETE FROM hr_position WHERE position_idx=:position_idx", data, callback);
     }
     const delete_department_ = function(data, callback){
-        model.run("DELETE FROM hr_position WHERE department_idx=:department_idx", data, callback);
+        model.run("DELETE FROM hr_department WHERE department_idx=:department_idx", data, callback);
     }
 
     return {

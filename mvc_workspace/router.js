@@ -57,16 +57,22 @@ const Router = function(app){
     
     // SelectionController 연결 부분
     // 선택 항목 관리
+    // 부서 관리 페이지 
     app.get('/department/edit/form', function(req, res){
         SelectionController.departmentEditFormView(req, res);
     });
 
+    // 직급 관리 페이지
     app.get('/position/edit/form', function(req, res){
         SelectionController.positionEditFormView(req, res);
     });
+
+    // 부서 관리 삭제 버튼 
     app.delete("/delete/position/form/:hr_select_idx", function(req, res){
         SelectionController.deletePosition(req, res);
     });
+
+    // 직급 관리 삭제 버튼
     app.delete("/delete/department/form/:hr_select_idx", function(req, res){
         SelectionController.deleteDepartment(req, res);
     });
