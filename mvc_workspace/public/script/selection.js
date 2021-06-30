@@ -37,11 +37,25 @@ const Init = function(){
         });
     };
 
+    // 추가하기
+    const create_new_selection_data = function(){
+        const page_type = $('input[name=selected_part]').val();
+        const input_data = $('input[name=name').val().trim();
+        console.log(page_type);
+        console.log(input_data);
+
+        if(input_data.length > 0){
+            console.log("입력함");
+        } else{ 
+            alert("추가할 내용을 입력 해 주세요.");
+        }
+    }
 
     return {
         event : function(){
             $(".ui.button.delete").on("click", show_delete_modal);
             $("#delete_btn").on('click', delete_selection_data);
+            $(".ui.button.add").on('click', create_new_selection_data);
         },
     }
 };

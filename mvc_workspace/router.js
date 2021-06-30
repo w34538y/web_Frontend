@@ -76,6 +76,8 @@ const Router = function(app){
     app.delete("/delete/department/form/:hr_select_idx", function(req, res){
         SelectionController.deleteDepartment(req, res);
     });
+    
+    app.post('')
 };
 //라우터 모듈화
 module.exports = Router;

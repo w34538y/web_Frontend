@@ -21,7 +21,7 @@
         <input type="hidden" name="selected_part" value="<%= page_type%>"/>
         <div class="container">
             <h4 class="ui horizontal divider header">
-                <i class="tag icon"></i>
+                <i class="building outline icon"></i>
                 <%if (page_type === 'department') { %>
                     부서관리
                 <%} else { %>
@@ -29,15 +29,15 @@
                 <%} %>  
             </h4>
             <!-- 등록하는 폼 -->
-            <form method="post" class="ui form warning">
+            <div method="post" class="ui form warning">
                 <div class="field">
                     <label>신규등록</label>
-                    <input type="text" placeholder="추가할 항목을 입력해주세요">
+                    <input type="text" name="name" placeholder="추가할 항목을 입력해주세요">
                 </div>
-                <div class="ui blue button">추가하기</div>
-            </form>
+                <div class="ui blue button add">추가하기</div>
+            </div>
             <h4 class="ui horizontal divider header">
-            <i class="bar chart icon"></i>
+            <i class=" table icon"></i>
             내역보기
             </h4>
             <table class="ui definition table">
