@@ -15,7 +15,7 @@ const SelectionModel = function(){
         deleteDepartment: function(data,callback){
             delete_department_(data,callback);
         },
-
+        
     }
 }
 
