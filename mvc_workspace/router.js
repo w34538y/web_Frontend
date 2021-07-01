@@ -67,17 +67,14 @@ const Router = function(app){
         SelectionController.positionEditFormView(req, res);
     });
 
-    // 부서 관리 삭제 버튼 
-    app.delete("/delete/position/form/:hr_select_idx", function(req, res){
-        SelectionController.deletePosition(req, res);
+    app.delete('/selection/delete/:page_type', function(req,res){
+        SelectionController.deleteSelectionData(req,res);
     });
 
-    // 직급 관리 삭제 버튼
-    app.delete("/delete/department/form/:hr_select_idx", function(req, res){
-        SelectionController.deleteDepartment(req, res);
+    app.post('/selection/add/:page_type', function(req,res){
+        SelectionController.createNewSelectionData(req,res);
     });
-    
-    app.post('')
+
 };
 //라우터 모듈화
 module.exports = Router;

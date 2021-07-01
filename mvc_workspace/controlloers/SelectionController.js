@@ -1,19 +1,19 @@
-// 선택사항 수정에서 사용할 컨트롤러 
-const SelectionController = function (){
-    // 호출에 맞는 기능을 관리하는 함수
-    // 모델을 연결하는 파트
+const { getDetailData } = require('../models/DetailModel');
+
+const SelectionController = function(){
 
     const main_model = require('../models/MainModel');
-    const selec_model = require('../models/SelectionModel');
+    const selection_model = require('../models/SelectionModel');
 
-    // 부서 관리 버튼을 누를시 실행되는 함수
-    const departmentEditFormRender = function(req, res){
+    const departmentEditFormRender = function(req,res){
         let data = {};
-        // 부서 리스트 
+        // 부서관리 버튼을 누를 시 실행되는 함수
+        
+        // 부서리스트
         const getDepartmentList = function(){
             return new Promise(function(resolve){
-                main_model.getDepartmentValue({}, function(err, rows){
-                    if(err){
+                main_model.getDepartmentValue({}, function(err,rows){
+                    if (err) {
                         console.log(err);
                         throw err;
                     } else {
@@ -24,26 +24,26 @@ const SelectionController = function (){
             });
         };
 
-        // 부서 관리 페이지로 이동
+        // 부서관리 페이지로 이동
         const view = function(){
-            data.page_type = "department";
+            data.page_type = 'department';
             res.render('selection', data);
         };
 
         getDepartmentList().then(function(){
             return view();
         });
-
     };
 
-    // 직급관리 버튼을 누를 시 실행되는 함수
-    const positionEditFormRender = function(req, res){
+    const positionEditFormRender = function(req,res){
         let data = {};
-        // 직급 리스트
+        // 직급관리 버튼을 누를 시 실행되는 함수
+
+        // 직급리스트
         const getPositionList = function(){
             return new Promise(function(resolve){
-                main_model.getPostionValue({}, function(err, rows){
-                    if(err){
+                main_model.getPostionValue({}, function(err,rows){
+                    if (err) {
                         console.log(err);
                         throw err;
                     } else {
@@ -52,70 +52,68 @@ const SelectionController = function (){
                     }
                 });
             });
-        };
-        // 직급 관리 페이지로 이동
+        }
+        // 직급관리 페이지로 이동
         const view = function(){
-            data.page_type = "position";
+            data.page_type = 'position';
             res.render('selection', data);
-        };
+        }
 
         getPositionList().then(function(){
             return view();
         });
     };
-    
-    const deleteposition = function(req, res){
-        const deleting = function(){
-            console.log(req);
-            selec_model.deletePosition({position_idx : parseInt(req.params.hr_select_idx)}, function(err, rows){
-                if(err){
-                    console.log(err);
-                    // 실패 시 클라이언트에 응답 보내기 (res)
-                    // res.json(처리 결과 정보를 담고 있는 객체)
-                    res.json({result : false, msg : 'INTERNAL_SERVER_ERROR' });
-                } else {
-                    console.log(rows);
-                    // 성공 시 클러이언트에 응답 보내기 (res)
-                    res.json({ result : true });
-                }
-            });
-        };
-        deleting();
-    }
 
-    const deletedepartment = function(req, res){
-        const deleting = function(){
-            selec_model.deleteDepartment({department_idx : parseInt(req.params.hr_select_idx)}, function(err, rows){
-                if(err){
-                    console.log(err);
-                    // 실패 시 클라이언트에 응답 보내기 (res)
-                    // res.json(처리 결과 정보를 담고 있는 객체)
-                    res.json({result : false, msg : 'INTERNAL_SERVER_ERROR' });
-                } else {
-                    console.log(rows);
-                    // 성공 시 클러이언트에 응답 보내기 (res)
-                    res.json({ result : true });
-                }
-            });
-        };
-        deleting();
+    const deleteSelectionData = function(req,res) {
+        // model 부서 또는 직급 삭제 기능 함수 호출
+        let data = {};
+
+        data.page_type = req.params.page_type;
+        // 객체의 키(key)를 동적으로 할당하는 방법
+        data[data.page_type+'_idx'] = parseInt(req.body.selected_data);
+        
+        selection_model.deleteSelectionData(data, function(err, rows){
+            if (err) {
+                console.log(err);
+                res.json({ result : false });
+            } else {
+                res.json({ result : true });
+            }
+        });
+
+    };
+
+    const createNewSelectionData = function(req,res){
+        let data = {};
+
+        data.page_type = req.params.page_type;
+        // department_name / position_name
+        data[data.page_type+'_name'] = req.body.input_data;
+
+        selection_model.createNewSelectionData(data, function(err,rows){
+            if (err) {
+                console.log(err);
+                res.json({ result : false });
+            } else {
+                res.json({ result : true });
+            }
+        });
     }
 
     return {
-        departmentEditFormView: function(req, res){
-            departmentEditFormRender(req, res);
+        departmentEditFormView : function(req,res){
+            departmentEditFormRender(req,res);
         },
-        positionEditFormView: function(req, res){
-            positionEditFormRender(req, res);
+        positionEditFormView : function(req,res){
+            positionEditFormRender(req,res);
         },
-        deletePosition: function(req, res){
-            deleteposition(req, res);
+        deleteSelectionData : function(req,res) {
+            deleteSelectionData(req,res);
         },
-        deleteDepartment : function(req, res){
-            deletedepartment(req, res)
+        createNewSelectionData : function(req,res){
+            createNewSelectionData(req,res);
         }
     }
-
 };
 
 module.exports = SelectionController();
