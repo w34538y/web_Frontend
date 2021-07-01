@@ -17,6 +17,7 @@ const SelectionModel = function(){
 
     const create_new_selection_data_ = function(data,callback){
         // { page_type : 'position', position_name : "인턴" }
+        console.log("==="+data.page_type);
         let table = 'hr_'+data.page_type;
         let col = data.page_type+'_name';
         let val = ':'+col;

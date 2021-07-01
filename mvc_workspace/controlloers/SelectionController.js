@@ -96,6 +96,7 @@ const SelectionController = function(){
                 res.json({ result : false });
             } else {
                 res.json({ result : true });
+                console.log(data);
             }
         });
     }
