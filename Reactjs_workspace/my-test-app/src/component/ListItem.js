@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 const ListWrapper = styled.div`
-    padding: 12px;
-    margin-top: 12px;
-    border: 2px solid #333333;
-    border-radius: 10px;
-    background-cokor:#ebebeb;
-    color: gray;
+  padding:12px;
+  margin-top:12px;
+  font-color:gray;
+  border:2px solid #333333;
+  border-radius:10px;
+  background-color:#ebebeb;
 `;
 
 
@@ -15,9 +15,10 @@ const ListWrapper = styled.div`
 // props는 읽기 전용 데이터이며 받은 쪽에서 수정하지 않는다
 
 function ListItem(props){
-    return(
-        <ListWrapper>{props.title}</ListWrapper>
-    );
-}
+    return (
+      <ListWrapper style={{"fontSize": props.size === "big" ? "20px" : "15px"}}>{props.title}</ListWrapper>
+    )
+  }
+  
 
 export default ListItem;
