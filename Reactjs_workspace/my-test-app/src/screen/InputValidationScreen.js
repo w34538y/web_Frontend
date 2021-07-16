@@ -40,6 +40,7 @@ function InputValidationScreen(){
         // /[매칭할문자들입력]/
         // g 모든 문자를 대상으로 전역 조회
         // i 대소문자 구분 없음
+        // test : 문자열이 있는지 검사하는 메소드. true나 false 반환
 
         const regexp = /[~!@#$%^&*()_+|<>?:{}]/g;
         setShowMessage(regexp.test(inputValue));
