@@ -69,6 +69,7 @@ function CartScreen({cartQtyUp, cartQtyDown}){
                 // 감소시킬 수량 정보를 찾은 후 downQty에 저장한다
                 downQty += v.prod_qty;
             }
+            return downQty;
         });
         // 필터링된 배열을 list state에 저장한다
         setList(newList);

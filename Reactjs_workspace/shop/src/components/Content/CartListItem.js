@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import sample from '../../image/sample_product.jpeg';
 
 const Wrapper = styled.div`
     display:flex;
