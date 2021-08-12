@@ -28,6 +28,7 @@ const MainText = styled.div`
     margin-top:4px;
     font-size:16px;
 `;
+
 function ListDetailScreen(props){
     console.log(props.location.state); // 영화데이터 객체정보
     if(props.location.state){

@@ -7,7 +7,11 @@
         <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
         <script>
             $(document).ready(function(){
-                $('.main_slider').bxSlider();
+                $('.main_slider').bxSlider({
+                    mode: 'fade',
+                    captions: true,
+                    slideWidth: 600
+                });
             });
         </script>
     </head>
@@ -24,9 +28,9 @@
         <section>
             <div class="main_banner">
                  <div class="main_slider">
-                     <div><img src="../image/main_slider/DSC03555.jpg"/></div>
-                     <div><img src="../image/main_slider/DSC03577.jpg"/></div>
-                     <div><img src="../image/main_slider/DSC03610.jpg"/></div>
+                     <div><img src="../image/main_slider/DSC03555.jpg" title="한강공원에서"/></div>
+                     <div><img src="../image/main_slider/DSC03577.jpg" title="한강공원에서 바라본 방화대교"/></div>
+                     <div><img src="../image/main_slider/DSC03610.jpg" title="롯데타워에서"/></div>
                  </div>
             </div>
             <div class="content">
