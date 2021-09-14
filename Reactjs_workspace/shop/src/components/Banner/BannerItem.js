@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import sample from '../../image/sample_banner1.png';
 
 const View = styled.div`
     width:100%;

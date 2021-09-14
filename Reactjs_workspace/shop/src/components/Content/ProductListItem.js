@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import sample from '../../image/sample_product.jpeg';
 
 const Wrapper = styled.div`
     display:inline-block;
